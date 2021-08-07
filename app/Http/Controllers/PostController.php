@@ -13,8 +13,11 @@ class PostController extends Controller
             "title" => "All Posts",
             // mengambil method all -> mendapatkan semua data postingan dari model Post
             // "posts" => Post::all()
+
+            "active" => "posts",
+
             // with => eager loading menjadi 3 query doang xixi
-            "posts" => Post::with(['author', 'category'])->latest()->get()
+            "posts" => Post::latest()->get()
         ]);
     }
 
@@ -22,6 +25,7 @@ class PostController extends Controller
     {
         return view('post', [
             "title" => "Single Post",
+            "active" => "posts",
             "post" => $post
         ]);
     }
