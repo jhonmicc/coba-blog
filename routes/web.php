@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 
 /*
@@ -48,18 +48,23 @@ Route::get('/categories', function () {
     ]);
 });
 
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('posts', [
-        'title' => "Post By Category : $category->name",
-        'active' => 'categories',
-        'posts' => $category->posts->load('category', 'author'),
-    ]);
-});
+// mereka berdua tidak dipakai lagi, karena sudah ditangani di query yang ada di Model Post
 
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('posts', [
-        'title' => "Post By Author : $author->name",
-        'active' => "categories",
-        'posts' => $author->posts->load('category', 'author'),
-    ]);
-});
+// Route::get('/categories/{category:slug}', function (Category $category) {
+//     return view('posts', [
+//         'title' => "Post By Category : $category->name",
+//         'active' => 'categories',
+//         'posts' => $category->posts->load('category', 'author'),
+//     ]);
+// });
+
+// Route::get('/authors/{author:username}', function (User $author) {
+//     return view('posts', [
+//         'title' => "Post By Author : $author->name",
+//         'active' => "categories",
+//         'posts' => $author->posts->load('category', 'author'),
+//     ]);
+// });
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);

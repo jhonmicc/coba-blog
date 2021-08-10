@@ -21,6 +21,16 @@
                         href="/categories">Categories</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/register" class="nav-link {{ $active === 'register' ? 'active' : '' }}">Register <i
+                            class="bi bi-person-plus"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/login" class="nav-link {{ $active === 'login' ? 'active' : '' }}">Login <i
+                            class="bi bi-box-arrow-in-right"></i></a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

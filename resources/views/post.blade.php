@@ -8,8 +8,10 @@
                 <h1 class="mb-3">{{ $post->title }}</h1>
                 <p>
                     <small class="text-muted">
-                        By. <a href="/authors/{{ $post->author->username }}"
-                            class="text-decoration-none">{{ $post->author->name }}</a>
+                        By. <a href="/posts?author={{ $post->author->username }}"
+                            class="text-decoration-none">{{ $post->author->name }}</a> in
+                        <a href="/posts?category={{ $post->category->slug }}"
+                            class="text-decoration-none">{{ $post->category->name }}</a>
                         {{ $post->created_at->diffForHumans() }}
                     </small>
                 </p>
